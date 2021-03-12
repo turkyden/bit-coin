@@ -146,7 +146,7 @@ function App() {
   return (
     <div className="App">
       <h2 className="text-2xl">BitCoin</h2>
-      <p className="text-lg text-gray-600 py-4">比特币十年走势一览 <strong>{date}</strong></p>
+      <p className="text-base text-gray-600 py-4">比特币十年走势一览 <strong>{date}</strong></p>
       <div className="Chart" ref={ref} />
     </div>
   );
