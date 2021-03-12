@@ -133,7 +133,7 @@ function App() {
     plot.current.render();
     
     window.setInterval(() => {
-      if(count.current == data.length) {
+      if(count.current === data.length) {
         count.current = 0;
       }
       plot.current.changeData(data.slice(count.current, count.current + 30)); // 更新数据源
