@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { G2, Line } from '@antv/g2plot'
 import './App.css';
 import data from './assets/bitcoin.json';
@@ -95,6 +95,7 @@ function App() {
   const ref = useRef(null);
   const plot = useRef(null);
   const count = useRef(0);
+  const [date, setDate] = useState('');
 
   useEffect(() => {
     const config = {
@@ -133,6 +134,7 @@ function App() {
     plot.current.render();
     
     window.setInterval(() => {
+      setDate(data[count.current].x);
       if(count.current === data.length) {
         count.current = 0;
       }
@@ -143,8 +145,8 @@ function App() {
 
   return (
     <div className="App">
-      <h2>BitCoin</h2>
-      <p>比特币十年走势一览</p>
+      <h2 className="text-2xl">BitCoin</h2>
+      <p className="text-lg text-gray-600 py-4">比特币十年走势一览 <strong>{date}</strong></p>
       <div className="Chart" ref={ref} />
     </div>
   );
